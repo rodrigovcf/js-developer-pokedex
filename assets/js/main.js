@@ -56,14 +56,8 @@ function convertPokemon(pokemon) {
 
         <div class="pokemonOneData">
         <nav id="menu-h">
-            <ul>
-                <li>
-                    <a href="https://satellasoft.com">
-                        About
-                    </a>
-                </li>
-
-                <li><a href="https://academy.satellasoft.com">Sobre</a></li>
+            <ul class="separator">
+                <li><a href="#">About</a></li>
                 
                 <li><a href="#">Base States</a></li>
                 
@@ -72,11 +66,11 @@ function convertPokemon(pokemon) {
                 <li><a href="#">Moves</a></li>
             </ul>
         </nav>
-            
+        
            
-            <div class="pagination">
-                <button onclick="window.location.href='${localIp}'" type="button">Back</button>           
-            </div>
+        <div class="pagination">
+            <button onclick="window.location.href='${localIp}'" type="button">Back</button>           
+        </div>
         </div>
     `
 }

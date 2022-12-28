@@ -23,14 +23,18 @@ body {
     }
 }
 
-/* #menu-h{
-    background-color: rgb(37, 37, 39);
-} */
+ul.separator {
+	list-style: none;
+	padding: 0;
+	width: 100%;
+    border-bottom: 1px solid rgb(232, 232, 232);
+}
 
 #menu-h ul {
     max-width: 800px;
     list-style: none;
     padding: 0;
+    font-size: 12px;
 }
 
 #menu-h ul li {
@@ -42,15 +46,8 @@ body {
     padding: 8px; 
     display: inline-block;
     text-decoration: none;
-    /* transition: background .4s; */
 }
 
  #menu-h ul li a:hover {
-    /* background-color: rgb(24, 139, 233); */
     color: rgb(24, 139, 233);
 }
-
-/* #menu-h ul li:last-child a {
-    float: right;
-    background-color: rgb(24, 139, 233);
-} */
