@@ -32,24 +32,25 @@ function getPokemonDetails(number){
     
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         pokes = pokemons.map(convertPokemon)
-        pokemonDetails.innerHTML = pokes[number]
+        pokemonDetails.innerHTML = pokes[number-1]
     })
 
 }
 
 function convertPokemon(pokemon) {
     return `
-        <div class="pokemon ${pokemon.type}">
-            <span class="number">#${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
-            <div class="detail">
+        <div class="pokemonOne ${pokemon.type}">
+            <span class="nameDetail">${pokemon.name}</span>    
+            <span class="numberDetail">#${pokemon.number}</span>
+            
+            <div class="pokeDetail">
                 <ol class="types">
-                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
-                </ol>
-
+                    ${pokemon.types.map((type) => `<li class="typeDetail ${type}">${type}</li>`).join('')}
+                </ol>         
                 <img src="${pokemon.photo}"
-                     alt="${pokemon.name}">
+                     alt="${pokemon.name}">       
             </div>
+            
             <a href="index.html" type="button">Voltar</a>
         </div>
     `
