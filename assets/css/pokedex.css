@@ -6,6 +6,19 @@
     list-style: none;
 }
 
+a:link { 
+    color: rgb(255, 255, 255); 
+}
+
+a:visited {
+    color: #fff;
+    text-decoration: none;
+  }
+
+a:hover { 
+    color: rgb(23, 91, 238); 
+}
+
 .normal {
     background-color: #a6a877;
 }
