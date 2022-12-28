@@ -2,6 +2,8 @@ const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const pokemonDetails = document.getElementById('pokemonDetails')
 
+const localIp = "http://192.168.0.11:8080"
+
 pokes = []
 
 const maxRecords = 151
@@ -49,13 +51,35 @@ function convertPokemon(pokemon) {
                 </ol>         
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">       
-            </div>
+            </div>                        
+        </div>
+
+        <div class="pokemonOneData">
+        <nav id="menu-h">
+            <ul>
+                <li>
+                    <a href="https://satellasoft.com">
+                        About
+                    </a>
+                </li>
+
+                <li><a href="https://academy.satellasoft.com">Sobre</a></li>
+                
+                <li><a href="#">Base States</a></li>
+                
+                <li><a href="#">Evolution</a></li>
+                
+                <li><a href="#">Moves</a></li>
+            </ul>
+        </nav>
             
-            <a href="index.html" type="button">Voltar</a>
+           
+            <div class="pagination">
+                <button onclick="window.location.href='${localIp}'" type="button">Back</button>           
+            </div>
         </div>
     `
 }
-
 
 function loadPokemonItens(offset, limit) {
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {

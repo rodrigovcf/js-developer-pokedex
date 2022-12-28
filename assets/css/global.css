@@ -22,3 +22,35 @@ body {
         border-radius: 1rem;
     }
 }
+
+/* #menu-h{
+    background-color: rgb(37, 37, 39);
+} */
+
+#menu-h ul {
+    max-width: 800px;
+    list-style: none;
+    padding: 0;
+}
+
+#menu-h ul li {
+    display: inline;
+}
+
+#menu-h ul li a {
+    color: rgb(28, 70, 168);
+    padding: 8px; 
+    display: inline-block;
+    text-decoration: none;
+    /* transition: background .4s; */
+}
+
+ #menu-h ul li a:hover {
+    /* background-color: rgb(24, 139, 233); */
+    color: rgb(24, 139, 233);
+}
+
+/* #menu-h ul li:last-child a {
+    float: right;
+    background-color: rgb(24, 139, 233);
+} */

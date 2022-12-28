@@ -19,6 +19,10 @@ a:hover {
     color: rgb(23, 91, 238); 
 }
 
+.backBt a{
+    color: #6f38f6;
+}
+
 .normal {
     background-color: #a6a877;
 }
@@ -106,6 +110,17 @@ a:hover {
     padding: 1rem;
     border-radius: 1rem;
     align-items: center;
+}
+
+.pokemonOneData {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    margin-top: -60px;
+    padding: 1rem;
+    border-radius: 1rem;
+    align-items: center;
+    background-color: #ffffff;
 }
 
 .pokemonDetail {
