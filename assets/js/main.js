@@ -2,11 +2,13 @@ const pokemonList = document.getElementById('pokemonList')
 const loadMoreButton = document.getElementById('loadMoreButton')
 const pokemonDetails = document.getElementById('pokemonDetails')
 
+let notData = false
+
 const localIp = "http://192.168.0.11:8080"
 
-pokes = []
+let pokes = []
 
-const maxRecords = 151
+const maxRecords = 150
 const limit = 10
 let offset = 0;
 
@@ -28,13 +30,17 @@ function convertPokemonToLi(pokemon) {
     `
 }
 
-function getPokemonDetails(number){         
-    loadMoreButton.parentElement.removeChild(loadMoreButton)
+function getPokemonDetails(number){   
+    let index = number-1
+    if (!notData){
+        loadMoreButton.parentElement.removeChild(loadMoreButton)
+    }   
+        
     pokemonList.parentElement.removeChild(pokemonList)
     
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         pokes = pokemons.map(convertPokemon)
-        pokemonDetails.innerHTML = pokes[number-1]
+        pokemonDetails.innerHTML = pokes[index]
     })
 
 }
@@ -55,31 +61,55 @@ function convertPokemon(pokemon) {
         </div>
 
         <div class="pokemonOneData">
-        <nav id="menu-h">
-            <ul class="separator">
-                <li><a href="#">About</a></li>
-                
-                <li><a href="#">Base States</a></li>
-                
-                <li><a href="#">Evolution</a></li>
-                
-                <li><a href="#">Moves</a></li>
-            </ul>
-        </nav>
+            <nav id="menu-h">
+                <ul class="separator">
+                    <li><a href="#">About</a></li>
+                    
+                    <li><a href="#">Base States</a></li>
+                    
+                    <li><a href="#">Evolution</a></li>
+                    
+                    <li><a href="#">Moves</a></li>
+                </ul>
+            </nav>
         
-           
-        <div class="pagination">
-            <button onclick="window.location.href='${localIp}'" type="button">Back</button>           
-        </div>
+            <div class="poke-data">
+                <table class="dataTable" width="100%">                
+                    <tr>
+                        <td width="35%">Height</td>
+                        <td id="td">${pokemon.height}</td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td id="td">${pokemon.weight}</td>
+                    </tr>
+                    <tr>
+                        <td>Abilities</td>
+                        <td id="td">
+                            ${pokemon.abilities.map((ability) => `<span>${ability}</span>`).join(', ')}                           
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Base Experience</td>
+                        <td id="td">${pokemon.base_experience}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button onclick="window.location.href='${localIp}'" type="button">Back</button>           
+            </div>
         </div>
     `
 }
 
 function loadPokemonItens(offset, limit) {
+    
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map(convertPokemonToLi).join('')
-        pokemonList.innerHTML += newHtml
+        pokemonList.innerHTML += newHtml              
     })
+    
 }
 
 loadPokemonItens(offset, limit)
@@ -93,6 +123,7 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, newLimit)
 
         loadMoreButton.parentElement.removeChild(loadMoreButton)
+        notData = true
     } else {
         loadPokemonItens(offset, limit)
     }

@@ -1,6 +1,6 @@
 .pokemons {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -113,14 +113,13 @@ a:hover {
 }
 
 .pokemonOneData {
-    display: flex;
     flex-direction: column;
     margin: .5rem;
     margin-top: -60px;
     padding: 1rem;
     border-radius: 1rem;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #ffffff;    
 }
 
 .pokemonDetail {
